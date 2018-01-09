@@ -9,11 +9,13 @@ import { bindActionCreators } from 'redux';
 class BookList extends Component {
   // renderList is going to map over an array of books and ...
   // for each book in the array, create a <li> that contains the book title
+  // whenever a book is clicked, call this.props.selectBook and pass it the book
   renderList() {
     return this.props.books.map((book) => {
       return (
         <li 
           key={book.title} 
+          onClick={() => this.props.selectBook(book)}
           className="list-group-item">
           {book.title}
         </li>
